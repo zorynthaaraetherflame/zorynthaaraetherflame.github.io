@@ -1,118 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zorynthaar Aetherflame</title>
-    <style>
-        /* Dark void + eternal blue flames */
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body, html { height:100vh; overflow-x:hidden; background:#000011; color:#00ddff; font-family:'Arial Black',sans-serif; }
-        #flame-bg { position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; pointer-events:none;
-            background:radial-gradient(circle at center,#001122 0%,#000011 50%,#000000 100%); overflow:hidden; }
-        .particle { position:absolute; width:4px; height:20px; border-radius:50% 50% 60% 40%/50% 50% 70% 30%;
-            background:linear-gradient(180deg,#00ffff 0%,#0066ff 50%,#0044cc 100%); opacity:0.8;
-            box-shadow:0 0 15px #00ffff; animation:rise 5s linear infinite, swirl 6s ease-in-out infinite; }
-        @keyframes rise { 0%{transform:translateY(100vh) scale(0.5);opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{transform:translateY(-50px) scale(1);opacity:0;} }
-        @keyframes swirl { 0%,100%{transform:rotate(0deg);} 50%{transform:rotate(180deg);} }
-
-        /* Layout & text */
-        .container { max-width:1200px; margin:0 auto; padding:20px; position:relative; z-index:10; text-align:center; }
-        h1 { font-size:3.5em; animation:pulse 2s infinite; }
-        h2 { margin:40px 0 20px; color:#00ffff; }
-        p { max-width:800px; margin:20px auto; line-height:1.6; }
-        section { opacity:0; animation:ignite 1s forwards; }
-        section:nth-child(1){animation-delay:0.5s;} section:nth-child(2){animation-delay:1s;}
-        section:nth-child(3){animation-delay:1.5s;} section:nth-child(4){animation-delay:2s;}
-        @keyframes ignite { to { opacity:1; transform:translateY(0); } }
-        @keyframes pulse { 0%,100%{text-shadow:0 0 20px #00ffff;} 50%{text-shadow:0 0 50px #00ffff,0 0 80px #0066ff;} }
-
-        /* Timeline cards */
-        .cards { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin:40px 0; }
-        .card { background:rgba(0,10,30,0.8); border:2px solid #00ffff; padding:20px; width:300px; border-radius:10px;
-                 box-shadow:0 0 20px rgba(0,255,255,0.4); transition:0.4s; }
-        .card:hover { box-shadow:0 0 40px rgba(255,100,0,0.8); transform:scale(1.05); }
-
-        /* Buttons & hover/click fire */
-        .btn { display:inline-block; padding:12px 30px; margin:10px; border:2px solid #00ffff; color:#00ffff;
-               text-decoration:none; border-radius:8px; position:relative; overflow:hidden; transition:0.4s; }
-        .btn:hover { color:#ff3300; border-color:#ff3300; text-shadow:0 0 20px #ff3300; transform:scale(1.1); }
-        .btn:hover::before { content:''; position:absolute; top:50%; left:50%; width:200px; height:200px;
-            background:radial-gradient(circle,#ff0066 0%,#ff6600 50%,transparent 70%); transform:translate(-50%,-50%) scale(0);
-            animation:burn 0.6s forwards; }
-        .btn:active { animation:clickBurst 0.3s; }
-        @keyframes burn { to { transform:translate(-50%,-50%) scale(2); opacity:0; } }
-        @keyframes clickBurst { 0%{box-shadow:0 0 0 #ff0000;} 50%{box-shadow:0 0 50px #ff00ff;} 100%{box-shadow:0 0 0 transparent;} }
-
-        footer { margin-top:60px; padding:20px; border-top:1px solid #00ffff; }
-        .social a { color:#00ffff; margin:0 15px; font-size:1.8em; transition:0.4s; }
-        .social a:hover { color:#ff3300; transform:rotate(360deg) scale(1.4); }
-        @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-    </style>
+</style>
 </head>
 <body>
     <div id="flame-bg"></div>
-    
-    <!-- Hero -->
-    <div style="text-align:center; padding-top:15vh;">
-        <h1>Zorynthaar Aetherflame</h1>
-        <p style="color:#00ffff; font-size:1.5em; text-shadow:0 0 20px #00ffff;">Dragon Sovereign of the Eternal Blue Inferno</p>
+    <div class="container">
+        <header>
+            <h1>Zorynthaar Aetherflame</h1>
+            <p>Dragon Sovereign of the Eternal Blue Inferno</p>
+        </header>
+
+        <section>
+            <h2>The Ruler's Might</h2>
+            <p>Behold the eternal blue inferno where shadows dance and flames reign supreme. Forged in flames that burn forever blue, I command the very essence of cosmic twilight.</p>
+        </section>
+
+        <section>
+            <h2>The Ascendant Chronicle</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Origins</h3>
+                    <p>Awakened in the primordial blue core with shadows as my first allies.</p>
+                </div>
+                <div class="card">
+                    <h3>Powers</h3>
+                    <p>Inferno command • Shadow weave • Aether burst</p>
+                </div>
+                <div class="card">
+                    <h3>Conquests</h3>
+                    <p>Eternal dominion over fractured realms and void tyrants.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Enter the Dominion</h2>
+            <a href="mailto:karthekeyamudili@gmail.com" class="btn">Invoke Contact</a>
+            <a href="https://x.com/ZorynthaarFlame" class="btn">X Realm</a>
+            <a href="#" class="btn">More Realms</a>
+        </section>
+
+        <footer>
+            <div class="social">
+                <a href="https://x.com/ZorynthaarFlame">🐉 X</a>
+                <a href="mailto:karthekeyamudili@gmail.com">🔥 Email</a>
+                <a href="#">🌌 Void</a>
+            </div>
+            <p>© Zorynthaar Aetherflame — Dominion Unbroken</p>
+        </footer>
     </div>
 
-    <!-- Bio -->
-    <section style="text-align:center; margin:40px 0; color:#00ffff; animation:fadeIn 1s ease-in;">
-        <h2 style="color:#00ffff; text-shadow:0 0 20px #00ffff;">The Ruler's Might</h2>
-        <p>Behold the eternal blue inferno where shadows dance and flames reign supreme. Forged in flames that burn forever blue, I command the very essence of cosmic twilight.</p>
-    </section>
-
-    <!-- Story Cards -->
-    <section style="text-align:center; margin:40px 0; color:#00ffff; animation:fadeIn 1s ease-in 0.5s both;">
-        <h2 style="color:#00ffff; text-shadow:0 0 20px #00ffff;">The Ascendant Chronicle</h2>
-        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; animation:fadeIn 1s ease-in 1s both;">
-            <div style="background:rgba(0,0,51,0.7); border:2px solid #00ffff; padding:20px; border-radius:10px; min-width:250px; box-shadow:0 0 20px #00ffff;">
-                <h3 style="color:#00ffff;">Origins</h3>
-                <p>Awakened in the primordial blue core with shadows as my first allies.</p>
-            </div>
-            <div style="background:rgba(0,0,51,0.7); border:2px solid #00ffff; padding:20px; border-radius:10px; min-width:250px; box-shadow:0 0 20px #00ffff;">
-                <h3 style="color:#00ffff;">Powers</h3>
-                <p>Inferno command • Shadow weave • Aether burst</p>
-            </div>
-            <div style="background:rgba(0,0,51,0.7); border:2px solid #00ffff; padding:20px; border-radius:10px; min-width:250px; box-shadow:0 0 20px #00ffff;">
-                <h3 style="color:#00ffff;">Conquests</h3>
-                <p>Eternal dominion over fractured realms and void tyrants.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Links -->
-    <section style="text-align:center; margin:40px 0; animation:fadeIn 1s ease-in 1.5s both;">
-        <h2 style="color:#00ffff; text-shadow:0 0 20px #00ffff;">Enter the Dominion</h2>
-        <a href="mailto:karthekeyamudili@gmail.com" class="btn">Invoke Contact</a>
-        <a href="https://x.com/ZorynthaarFlame" class="btn">X Realm</a>
-    </section>
-
-    <!-- Footer -->
-    <footer style="text-align:center; padding:20px; border-top:1px solid #00ffff; color:#00ffff; position:fixed; bottom:0; width:100%;">
-        <p>© Zorynthaar Aetherflame — Dominion Unbroken 🐉💙🔥</p>
-    </footer>
-
     <script>
-        // Spawn 80 blue flame particles + eternal flicker
         const bg = document.getElementById('flame-bg');
-        for(let i = 0; i < 80; i++) {
-            let p = document.createElement('div');
+        for (let i = 0; i < 80; i++) {
+            const p = document.createElement('div');
             p.className = 'particle';
             p.style.left = Math.random() * 100 + '%';
             p.style.animationDelay = Math.random() * 5 + 's';
             p.style.animationDuration = (Math.random() * 3 + 3) + 's';
             bg.appendChild(p);
         }
-        // Flicker loop for intensity
         setInterval(() => {
             document.querySelectorAll('.particle').forEach(p => {
                 if (Math.random() < 0.2) {
                     p.style.opacity = Math.random() > 0.5 ? 1 : 0.4;
-                    p.style.transform += ' scale(' + (Math.random() * 0.5 + 0.8) + ')';
                 }
             });
         }, 200);
