@@ -47,57 +47,75 @@
         footer { margin-top:60px; padding:20px; border-top:1px solid #00ffff; }
         .social a { color:#00ffff; margin:0 15px; font-size:1.8em; transition:0.4s; }
         .social a:hover { color:#ff3300; transform:rotate(360deg) scale(1.4); }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
     </style>
 </head>
 <body>
-
-<div id="flame-bg"></div>
-
-<div class="container">
-    <header>
+    <div id="flame-bg"></div>
+    
+    <!-- Hero -->
+    <div style="text-align:center; padding-top:15vh;">
         <h1>Zorynthaar Aetherflame</h1>
-        <p>Dragon Sovereign of the Eternal Blue Inferno</p>
-    </header>
+        <p style="color:#00ffff; font-size:1.5em; text-shadow:0 0 20px #00ffff;">Dragon Sovereign of the Eternal Blue Inferno</p>
+    </div>
 
-    <section>
-        <h2>The Ruler's Might</h2>
+    <!-- Bio -->
+    <section style="text-align:center; margin:40px 0; color:#00ffff; animation:fadeIn 1s ease-in;">
+        <h2 style="color:#00ffff; text-shadow:0 0 20px #00ffff;">The Ruler's Might</h2>
         <p>Behold the eternal blue inferno where shadows dance and flames reign supreme. Forged in flames that burn forever blue, I command the very essence of cosmic twilight.</p>
     </section>
-    <section>
-        <h2>The Ascendant Chronicle</h2>
-        <div class="cards">
-            <div class="card"><h3>Origins</h3><p>Awakened in the primordial blue core with shadows as my first allies.</p></div>
-            <div class="card"><h3>Powers</h3><p>Inferno command · Shadow weave · Aether burst</p></div>
-            <div class="card"><h3>Conquests</h3><p>Eternal dominion over fractured realms and void tyrants.</p></div>
+
+    <!-- Story Cards -->
+    <section style="text-align:center; margin:40px 0; color:#00ffff; animation:fadeIn 1s ease-in 0.5s both;">
+        <h2 style="color:#00ffff; text-shadow:0 0 20px #00ffff;">The Ascendant Chronicle</h2>
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; animation:fadeIn 1s ease-in 1s both;">
+            <div style="background:rgba(0,0,51,0.7); border:2px solid #00ffff; padding:20px; border-radius:10px; min-width:250px; box-shadow:0 0 20px #00ffff;">
+                <h3 style="color:#00ffff;">Origins</h3>
+                <p>Awakened in the primordial blue core with shadows as my first allies.</p>
+            </div>
+            <div style="background:rgba(0,0,51,0.7); border:2px solid #00ffff; padding:20px; border-radius:10px; min-width:250px; box-shadow:0 0 20px #00ffff;">
+                <h3 style="color:#00ffff;">Powers</h3>
+                <p>Inferno command • Shadow weave • Aether burst</p>
+            </div>
+            <div style="background:rgba(0,0,51,0.7); border:2px solid #00ffff; padding:20px; border-radius:10px; min-width:250px; box-shadow:0 0 20px #00ffff;">
+                <h3 style="color:#00ffff;">Conquests</h3>
+                <p>Eternal dominion over fractured realms and void tyrants.</p>
+            </div>
         </div>
     </section>
 
-    <section>
-        <h2>Enter the Dominion</h2>
+    <!-- Links -->
+    <section style="text-align:center; margin:40px 0; animation:fadeIn 1s ease-in 1.5s both;">
+        <h2 style="color:#00ffff; text-shadow:0 0 20px #00ffff;">Enter the Dominion</h2>
         <a href="mailto:karthekeyamudili@gmail.com" class="btn">Invoke Contact</a>
-        <a href="https://x.com/yourhandle" class="btn">X / Twitter</a>
-        <a href="#" class="btn">More Realms</a>
+        <a href="https://x.com/ZorynthaarFlame" class="btn">X Realm</a>
     </section>
 
-    <footer>
-        <div class="social">
-            <a href="#">X</a> <a href="#">🔥</a> <a href="#">🌌</a>
-        </div>
-        <p>© Zorynthaar Aetherflame — Dominion Unbroken</p>
+    <!-- Footer -->
+    <footer style="text-align:center; padding:20px; border-top:1px solid #00ffff; color:#00ffff; position:fixed; bottom:0; width:100%;">
+        <p>© Zorynthaar Aetherflame — Dominion Unbroken 🐉💙🔥</p>
     </footer>
-</div>
 
-<script>
-// Spawn 60 eternal blue flame particles
-const bg = document.getElementById('flame-bg');
-for(let i=0; i<60; i++){
-    let p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random()*100 + '%';
-    p.style.animationDelay = Math.random()*5 + 's';
-    p.style.animationDuration = (Math.random()*3 + 4) + 's';
-    bg.appendChild(p);
-}
-</script>
+    <script>
+        // Spawn 80 blue flame particles + eternal flicker
+        const bg = document.getElementById('flame-bg');
+        for(let i = 0; i < 80; i++) {
+            let p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 5 + 's';
+            p.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            bg.appendChild(p);
+        }
+        // Flicker loop for intensity
+        setInterval(() => {
+            document.querySelectorAll('.particle').forEach(p => {
+                if (Math.random() < 0.2) {
+                    p.style.opacity = Math.random() > 0.5 ? 1 : 0.4;
+                    p.style.transform += ' scale(' + (Math.random() * 0.5 + 0.8) + ')';
+                }
+            });
+        }, 200);
+    </script>
 </body>
 </html>
