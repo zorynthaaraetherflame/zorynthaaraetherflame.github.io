@@ -3,26 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zorynthaar Aetherflame - Eternal Blue Inferno</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Zorynthaar Aetherflame: Ruler of the Eternal Blue Inferno</title>
+    <style>
+        /* Core Styles: Dark Dominion Theme */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { 
+            font-family: 'Arial Black', sans-serif; background: #000011; color: #00aaff; 
+            overflow-x: hidden; height: 100vh; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; position: relative; z-index: 10; }
+        h1 { text-align: center; font-size: 3em; margin: 20px 0; color: #00ffff; animation: pulse 2s infinite; }
+        section { margin: 40px 0; text-align: center; opacity: 0; transform: translateY(30px); animation: ignite 1s ease forwards; }
+        section:nth-child(odd) { animation-delay: 0.5s; }
+        section:nth-child(even) { animation-delay: 1s; }
+        p { font-size: 1.2em; line-height: 1.6; max-width: 800px; margin: 0 auto; }
+        a, button { 
+            display: inline-block; padding: 10px 20px; margin: 10px; background: transparent; 
+            border: 2px solid #00aaff; color: #00aaff; text-decoration: none; cursor: pointer; 
+            transition: all 0.3s ease; position: relative; z-index: 10; font-weight: bold; 
+            border-radius: 5px;
+        }
+        /* Eternal Blue Aetherflame Background */
+        #aetherflame-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;
+            background: radial-gradient(circle at center, #001122 0%, #000011 50%, #000000 100%);
+            overflow: hidden;
+        }
+        .flame-particle {
+            position: absolute; width: 3px; height: 15px; border-radius: 50% 50% 60% 40% / 50% 50% 70% 30%;
+            background: linear-gradient(180deg, #00aaff 0%, #0066ff 50%, #0044cc 100%);
+            opacity: 0.8; box-shadow: 0 0 10px #00aaff, 0 0 20px #0066ff;
+            animation: riseAndFlicker 4s linear infinite, swirl 6s ease-in-out infinite;
+        }
+        @keyframes riseAndFlicker {
+            0% { transform: translateY(100vh) scaleY(0.5); opacity: 0; }
+            10% { opacity: 1; transform: scaleY(1); }
+            50% { transform: scaleY(1.2); opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-20px) scaleY(0.8); opacity: 0; }
+        }
+        @keyframes swirl {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        .flame-particle:nth-child(odd) { animation-duration: 3s; background: linear-gradient(180deg, #00ffff 0%, #0099ff 100%); }
+        .flame-particle:nth-child(even) { animation-delay: 2s; }
+        /* Ignite Scroll-In */
+        @keyframes ignite {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* God-Like Hover: Burn with Shifting Flames */
+        a:hover, button:hover {
+            color: #ff6600 !important; text-shadow: 0 0 20px #ff6600, 0 0 40px #ff3300 !important;
+            transform: scale(1.05) !important; border-color: #ff6600;
+        }
+        a:hover::before, button:hover::before {
+            content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 100px; border-radius: 50%; 
+            background: radial-gradient(circle, #ff0000 0%, #ff6600 50%, transparent 100%);
+            animation: burnExplode 0.5s ease-out; z-index: -1;
+        }
+        /* Click Explosion: Multi-Color Burst */
+        a:active, button:active { animation: clickBurst 0.2s ease-out; }
+        @keyframes burnExplode {
+            0% { transform: translateX(-50%) scale(0); opacity: 1; }
+            100% { transform: translateX(-50%) scale(2); opacity: 0; }
+            }
+        @keyframes clickBurst {
+            0% { box-shadow: 0 0 0 #ff0000, inset 0 0 0 #ffff00; }
+            50% { box-shadow: 0 0 30px #ff00ff, inset 0 0 20px #00ff00; }
+            100% { box-shadow: 0 0 0 transparent; }
+        }
+        /* Title Pulse */
+        @keyframes pulse {
+            0%,100% { text-shadow: 0 0 10px #00aaff; }
+            50% { text-shadow: 0 0 30px #00aaff, 0 0 50px #0066ff; }
+        }
+        /* Responsive */
+        @media (max-width: 768px) { h1 { font-size: 2em; } p { font-size: 1em; } }
+    </style>
 </head>
 <body>
-    <div class="void-bg"></div>
-    <div class="flame-particles">
-        <div class="particle"></div><div class="particle" style="left:10%; animation-delay:0.5s;"></div>
-        <div class="particle" style="left:20%; animation-delay:1s;"></div><div class="particle" style="left:30%; animation-delay:0.2s;"></div>
-        <div class="particle" style="left:40%; animation-delay:1.5s;"></div><div class="particle" style="left:50%; animation-delay:0.8s;"></div>
-        <div class="particle" style="left:60%; animation-delay:1.2s;"></div><div class="particle" style="left:70%; animation-delay:0.4s;"></div>
-        <div class="particle" style="left:80%; animation-delay:1.8s;"></div><div class="particle" style="left:90%; animation-delay:0.6s;"></div>
+    <!-- Eternal Flame Background -->
+    <div id="aetherflame-bg" class="flame-bg"></div>
+
+    <div class="container">
+        <!-- Hero -->
+        <header>
+            <h1>Zorynthaar Aetherflame</h1>
+            <p>Ruler of the Eternal Blue Inferno, Shadows, and Flames</p>
+        </header>
+
+        <!-- Bio Section -->
+        <section id="bio">
+            <h2>About the Sovereign</h2>
+            <p>As Zorynthaar Aetherflame, I am the mystical embodiment of unbound power, forged in the heart of the cosmic void where shadows dance with azure fire. My dominion spans realms unseen, commanding the primal forces of creation and destruction with a mere whisper. Witness the blue inferno that bends to my will, eternal and unyielding.</p>
+        </section>
+
+        <!-- Story/Background Section -->
+        <section id="story">
+            <h2>The Ascendant Chronicle</h2>
+            <p>Born from the primordial twilight, my ascent began with the binding of shadows to the heart of flame. Conquests etched in starfire: Overthrowing the void tyrants, weaving aether into weapons of pure dominion. Each epoch forges me stronger, a saga of flames that consume worlds and birth galaxies anew.</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto; list-style: none;">
+                <li style="margin: 10px 0; padding: 10px; border-left: 3px solid #00aaff;">Origins: Awakened in the blue core, shadows as my first allies.</li>
+                <li style="margin: 10px 0; padding: 10px; border-left: 3px solid #00aaff;">Powers: Inferno command, shadow weave, aether burst.</li>
+                <li style="margin: 10px 0; padding: 10px; border-left: 3px solid #00aaff;">Conquests: Eternal vigil over the fractured realms.</li>
+            </ul>
+        </section>
+
+        <!-- Links/Contact -->
+        <section id="links">
+            <h2>Enter the Dominion</h2>
+            <a href="#bio" id="ascend-btn">Ascend to Bio</a>
+            <a href="#story">Unveil the Saga</a>
+            <button onclick="alert('Flames awaken—contact forged in fire: karthekeyamudili@gmail.com')">Invoke Contact</button>
+            <br><small>Shadows whisper: Follow on X @ZorynthaarFlame | Email for alliances</small>
+        </section>
     </div>
-    <header class="hero">
-        <h1 class="aetherflame">Zorynthaar<br>Aetherflame</h1>
-        <p>Dragon Sovereign of the Eternal Blue Void</p>
-    </header>
-    <section class="lore">
-        <h2>The Aetheric Dominion</h2>
-        <p>Forged in flames that burn forever blue, where stars shatter like dragon scales... (Etch your lore here)</p>
-    </section>
+
+    <script>
+        // Generate 50 Flame Particles (Eternal Loop)
+        const bg = document.getElementById('aetherflame-bg');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'flame-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.bottom = Math.random() * -100 + '%';
+            particle.style.animationDelay = Math.random() * 4 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            bg.appendChild(particle);
+        }
+        // Infinite Flicker
+        setInterval(() => {
+            Array.from(bg.children).forEach(p => {
+                if (Math.random() < 0.1) p.style.opacity = Math.random() > 0.5 ? 1 : 0.5;
+            });
+        }, 200);
+
+        // Scroll Ignite Animations
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('section').forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if (rect.top < window.innerHeight) sec.style.animationPlayState = 'running';
+            });
+        });
+    </script>
 </body>
 </html>
