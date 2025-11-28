@@ -1,0 +1,12 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Cinzel Decorative', serif; color: #fff; overflow-x: hidden; position: relative; }
+.void-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(ellipse at bottom, #000428 0%, #004e92 50%, #000428 100%); animation: void-pulse 20s ease-in-out infinite alternate; }
+@keyframes void-pulse { 0% { opacity: 0.8; } 100% { opacity: 1; filter: hue-rotate(10deg); } }
+.flame-particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.particle { position: absolute; width: 4px; height: 4px; background: radial-gradient(circle, #00BFFF 0%, transparent 70%); border-radius: 50%; opacity: 0; animation: rise-flame 4s ease-out infinite; bottom: 0; left: 50%; margin-left: -2px; }
+@keyframes rise-flame { 0% { transform: translateY(0) scale(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
+.hero { text-align: center; padding: 150px 20px 100px; position: relative; z-index: 1; background: linear-gradient(to top, transparent, rgba(0, 190, 255, 0.1)); }
+.aetherflame { font-size: 5rem; margin: 0; background: linear-gradient(45deg, #00BFFF, #1E90FF, #4169E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #1E90FF, 0 0 40px #4169E1, 0 0 50px #00BFFF; animation: blue-flicker 2s ease-in-out infinite alternate; mix-blend-mode: screen; }
+@keyframes blue-flicker { 0% { text-shadow: 0 0 5px #00BFFF, 0 0 10px #1E90FF, 0 0 20px #4169E1, filter: blur(0px); } 100% { text-shadow: 0 0 20px #00BFFF, 0 0 40px #1E90FF, 0 0 60px #4169E1, filter: blur(1px); } }
+.lore { padding: 50px 20px; text-align: center; border-top: 2px solid #00BFFF; max-width: 800px; margin: 0 auto; }
+@media (max-width: 768px) { .aetherflame { font-size: 3rem; } }
