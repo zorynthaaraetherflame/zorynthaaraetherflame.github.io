@@ -25,10 +25,10 @@
         a { color: #9900ff; text-decoration: none; }
         a:hover { text-shadow: 0 0 10px #9900ff; }
     </style>
-    <!-- tsParticles core (free CDN) -->
+    <!-- tsParticles core -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-    <!-- Fire preset (additional for flame effects) -->
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-fire@3/@tsparticles/preset-fire.bundle.min.js"></script>
+    <!-- Fire preset bundle (for flame effects) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-fire@3/tsparticles.preset.fire.bundle.min.js"></script>
 </head>
 <body>
     <!-- Blue Flame Intro (bursts on open) -->
@@ -63,15 +63,14 @@
     </div>
 
     <script>
-        // Load event for animations
-        document.addEventListener("DOMContentLoaded", () => {
-            // Load the fire preset first
-            loadFirePreset(tsParticles);
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Load the fire preset
+            await loadFirePreset(tsParticles);
 
             // Blue Flame Intro
             const intro = document.getElementById("blue-flame-intro");
             intro.style.display = "block";
-            tsParticles.load("blue-flame-intro", {
+            await tsParticles.load("blue-flame-intro", {
                 preset: "fire",
                 fullScreen: { enable: true },
                 particles: {
@@ -84,19 +83,19 @@
                 },
                 emitters: { direction: "top", rate: { quantity: 10, delay: 0.1 } }
             });
-            // Fade out after 3 seconds
-            setTimeout(() => { intro.style.transition = "opacity 1s"; intro.style.opacity = 0; }, 3000);
-            setTimeout(() => { intro.style.display = "none"; }, 4000);
+            // Fade out after 4 seconds (give time for load)
+            setTimeout(() => { intro.style.transition = "opacity 1.5s"; intro.style.opacity = 0; }, 4000);
+            setTimeout(() => { intro.style.display = "none"; }, 5500);
 
             // Purple Dancing Flames with All Colors
-            tsParticles.load("purple-dancing-flames", {
+            await tsParticles.load("purple-dancing-flames", {
                 preset: "fire",
                 fullScreen: { enable: false },
                 particles: {
                     number: { value: 100 },
                     color: { 
-                        value: ["#9900ff", "#ff00ff", "#ff0000", "#ffa500", "#ffff00", "#0000ff"], // All flame colors: purple, magenta, red, orange, yellow, blue
-                        animation: { enable: true, speed: 20, sync: false } // Cycle colors randomly
+                        value: ["#9900ff", "#ff00ff", "#ff0000", "#ffa500", "#ffff00", "#0000ff"], // All flame colors
+                        animation: { enable: true, speed: 20, sync: false } // Random cycling
                     },
                     shape: { type: "circle" },
                     opacity: { value: 0.7, animation: { enable: true, speed: 0.5 } },
@@ -106,8 +105,8 @@
                         speed: { min: 0.5, max: 3 },
                         direction: "none",
                         random: true,
-                        attract: { enable: true, rotate: { x: 600, y: 1200 } }, // Swirling dance
-                        wobble: { enable: true, distance: 10, speed: 1 } // Piano-like waving
+                        attract: { enable: true, rotate: { x: 600, y: 1200 } },
+                        wobble: { enable: true, distance: 10, speed: 1 } // Dancing wave
                     },
                     life: { duration: { min: 5, max: 10 } }
                 },
